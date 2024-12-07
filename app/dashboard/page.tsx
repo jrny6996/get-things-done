@@ -12,9 +12,7 @@ function page() {
 
 
   return (
-    <>
-    <h1 className='text-center'>Actually useful habit tracker</h1>
-    
+    <>    
       <div className='h-screen p-10'>
 
         <div className='grid grid-cols-7 gap-5 h-96'>

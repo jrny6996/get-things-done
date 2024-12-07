@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Card from './Card'
+import ListCard from './ListCard'
 import TaskModal from './TaskModal'
 function Tasks() {
     const [modalOpen, setModalOpen] = useState(false)
@@ -15,12 +16,12 @@ function Tasks() {
             {userTasks.map((item, index) => (
                 <div className="my-2">
 
-                    <Card >
-                        <div className='text-gray-300 grid grid-cols-2 px-1 hover:text-green-300 ' onClick={handleOpening}>
+                    <ListCard >
+                        <div className='grid grid-cols-2 px-1' onClick={handleOpening}>
                             <h3>{item.name}</h3> <button className='justify-self-end'>{item.estMinutes} minutes</button>
 
                         </div>
-                    </Card>
+                    </ListCard>
                 </div>
 
             ))}

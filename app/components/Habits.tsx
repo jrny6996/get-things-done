@@ -1,5 +1,7 @@
+//@ts-nocheck
 import React, { useState } from 'react'
 import Card from './Card'
+import ListCard from './ListCard'
 import HabitModal from './HabitModal'
 import Modal from './Modal'
 
@@ -7,10 +9,12 @@ import Modal from './Modal'
 
 function Habits() {
     const [modalOpen, setModalOpen] = useState(false)
+    const [selectedItem, setSelectedItem] = useState(null)
     let userHabits = [{'key': 1,'name': "Running", "streak": 0},{'key': 2,'name': "Coding", "streak": 11},{'key': 3,'name': "Weight lifting", "streak": 2},]
 
 
     const handleOpening = () => {
+        setSelectedItem(userHabits)
         setModalOpen(true)
     }
     return (
@@ -21,12 +25,12 @@ function Habits() {
             {userHabits.map((item, index) => (
                 <div className="my-2">
 
-                <Card >
-                    <div className='text-gray-300 grid grid-cols-2 px-1 hover:text-green-300 ' onClick={handleOpening}>
+                <ListCard >
+                    <div className='grid grid-cols-2 px-1' onClick={handleOpening}>
                         <h3>{item.name}</h3> <button className='justify-self-end'>{item.streak}</button>
 
                     </div>
-                </Card>
+                </ListCard>
                 </div>
                 
 
@@ -35,7 +39,7 @@ function Habits() {
                 
             </ul>
 
-            { modalOpen && <HabitModal closeModal={setModalOpen} habits ={userHabits}/> }
+             { modalOpen && <HabitModal closeModal={setModalOpen} habits ={userHabits.id}/> } 
             </div>
         
         </Card >)
